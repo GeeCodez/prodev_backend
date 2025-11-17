@@ -1,0 +1,4 @@
+tutenv/
+__init__/
+__pychache__/
+db.sqlite3
