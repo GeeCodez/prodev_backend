@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework.authtoken',
     # Third-party apps
     'rest_framework',
+    'djoser',
     # Local apps
     'transactions',
+
 ]
 
 MIDDLEWARE = [
@@ -126,3 +129,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# config/settings.py (at the very end)
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
+SIMPLE_JWT = {
+   'AUTH_HEADER_TYPES': ('JWT', 'Bearer'),
+}
